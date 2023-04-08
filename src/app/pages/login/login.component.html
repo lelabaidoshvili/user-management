@@ -1,0 +1,28 @@
+
+<div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="was-validated">
+    <div class="header">
+      <h1 class="h3 mb-3 fw-normal">Angular Signin</h1>
+    </div>
+    <div class="inputs">
+      <label for="floatingInput">USERNAME</label>
+      <div class="form-floating my-3">
+        <input type="username" class="form-control input form-control is-invalid" formControlName="username" id="floatingInput" placeholder="username: admin" required>
+        <div class="invalid-feedback" *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+          Username is required.
+        </div>
+      </div>
+      <label for="floatingPassword">PASSWORD</label>
+      <div class="form-floating my-3">
+        <input type="password" class="form-control input input form-control is-invalid" formControlName="password" id="floatingPassword" placeholder="password: admin" required>
+        <div class="invalid-feedback" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+          Password is required.
+        </div>
+      </div>
+      <button class="w-20 btn btn-lg btn-primary" type="submit" [disabled]="">Signin</button>
+    </div>
+  </form>
+</div>
