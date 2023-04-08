@@ -1,1 +1,23 @@
-<p>home-page works!</p>
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="fw-light-bold">ID</th>
+      <th class="fw-light-bold">Name</th>
+      <th class="fw-light-bold">Username</th>
+      <th class="fw-light-bold">Email</th>
+      <th class="fw-light-bold">Website</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users" (click)="onRowClick()" class="clickable-row">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.website }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

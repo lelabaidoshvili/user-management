@@ -32,7 +32,7 @@ export class LoginComponent  implements OnInit{
       this.errorMessage = 'Username or password is incorrect';
       return;
     } else {
-      this.router.navigate(['/user-list'])
+      this.router.navigate(['/home'])
     }
   }
   AddUsername() {
