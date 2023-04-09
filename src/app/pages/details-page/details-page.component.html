@@ -1,8 +1,46 @@
-<div *ngIf="user">
-  <h2>User Details</h2>
-  <p>ID: {{ user.id }}</p>
-  <p>Name: {{ user.name }}</p>
-  <p>Username: {{ user.username }}</p>
-  <p>Email: {{ user.email }}</p>
-  <p>Website: {{ user.website }}</p>
+<!--<div *ngIf="user">-->
+<!--  <h2>User Details</h2>-->
+<!--  <p>ID: {{ user.id }}</p>-->
+<!--  <p>Name: {{ user.name }}</p>-->
+<!--  <p>Username: {{ user.username }}</p>-->
+<!--  <p>Email: {{ user.email }}</p>-->
+<!--  <p>Website: {{ user.website }}</p>-->
+<!--</div>-->
+
+<div class="container">
+  <div class="wrapper">
+    <div class="image"
+         style="
+            background-image: url('/assets/user-details-photo.jpeg');
+            background-size: cover;
+          ">
+      <div *ngIf="user">
+        <div class="id-info">
+          <span>{{user.id}}</span>
+        </div>
+        <div class="username-info">
+          <span>{{user.name.slice(0, 1).toUpperCase()}}</span>
+        </div>
+        <div class="info">
+          <div class="username">
+            <h2>{{user.name}}</h2>
+          </div>
+          <div class="user-email_info">
+            <p>{{user.email}}</p>
+          </div>
+      </div>
+      </div>
+      <div class="icons">
+        <div class="icon">
+          <span>f</span>
+        </div>
+        <div class="icon">
+          <span>f</span>
+        </div>
+        <div class="icon">
+          <span>f</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

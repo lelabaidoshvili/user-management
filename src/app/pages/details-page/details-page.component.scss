@@ -1,0 +1,91 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.wrapper {
+  position: relative;
+  width: 450px;
+  height: 650px;
+  margin-top: 100px;
+}
+.image{
+  width: 360px;
+  height: 600px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 50px solid #353a40;
+}
+.id-info {
+  position: absolute;
+  right: 94%;
+  bottom: 96%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #e27374;
+}
+span {
+  color: #fdfdfd;
+  font-size: 18px;
+}
+.username-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #03a8f4;
+  border: #fdfdfd solid 1px;
+  top: 15%;
+  left: 18%;
+  span {
+    font-size: 70px;
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 240px;
+  bottom: 37%;
+  left: 15%
+}
+h2 {
+  color: #fdfdfd;
+  font-size: 21px;
+
+}
+p {
+  font-size: 16px;
+  color: #fdfdfd;
+
+}
+.icons {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  bottom: 10%;
+  left: 28%;
+
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: #6e6d6d;
+  gap: 10px;
+
+}
