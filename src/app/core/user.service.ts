@@ -9,7 +9,7 @@ export class UserService {
 
 
   private url = 'https://jsonplaceholder.typicode.com/users';
-  private apiUrl = '⦁\thttps://jsonplaceholder.typicode.com/users/⦁\tid';
+  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
   constructor( private http: HttpClient) { }
 

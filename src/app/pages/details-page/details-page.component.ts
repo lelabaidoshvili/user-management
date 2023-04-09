@@ -17,7 +17,7 @@ export class DetailsPageComponent  implements OnInit{
     const userId = this.route.snapshot.paramMap.get('id');
     if (userId !== null) {
       this.userService.getUserById(+userId)
-        .subscribe(data => this.user = data);
+        .subscribe(user => this.user = user);
       console.log('gfdsjhfsjdkf', this.user)
     }
   }

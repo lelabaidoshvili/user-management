@@ -13,7 +13,7 @@ const routes: Routes = [
       import('./pages/home-page/home-page.module').then((m) => m.HomePageModule)
   },
   {
-    path: 'details',
+    path: 'details/:id',
     loadChildren: () =>
       import('./pages/details-page/details-page.module').then((m) => m.DetailsPageModule)
   }

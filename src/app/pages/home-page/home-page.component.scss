@@ -6,4 +6,34 @@
 }
 .clickable-row {
   cursor: pointer;
+
+}
+.context-menu {
+  position: absolute;
+  border: 1px solid #dde1e5;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #fdfdfd;
+  padding: 0;
+
+}
+
+span {
+ padding: 30px;
+}
+.delete-button {
+  width: 100px;
+  height: 35px;
+  border-bottom: 1px solid #dde1e5;
+}
+.detail-button {
+  width: 100px;
+  height: 35px;
+
+}
+.delete-button:hover {
+  background-color: #f4f5f5;
+}
+.detail-button:hover {
+  background-color: #f4f5f5;
 }
