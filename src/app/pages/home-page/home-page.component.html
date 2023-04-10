@@ -1,31 +1,31 @@
 
 <div class="container">
   <h3 class="fw-normal">Users List</h3>
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th class="fw-light-bold">ID</th>
-      <th class="fw-light-bold">Name</th>
-      <th class="fw-light-bold">Username</th>
-      <th class="fw-light-bold">Email</th>
-      <th class="fw-light-bold">Website</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users" (click)="onRowClick(user.id, $event)" (contextmenu)="onContextMenu($event, user.id)" class="clickable-row"
+    <table class="table table-bordered table-responsive">
+      <thead>
+      <tr>
+        <th class="fw-light-bold">ID</th>
+        <th class="fw-light-bold">Name</th>
+        <th class="fw-light-bold">Username</th>
+        <th class="fw-light-bold">Email</th>
+        <th class="fw-light-bold">Website</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users" (click)="onRowClick(user.id, $event)" (contextmenu)="onContextMenu($event, user.id)" class="clickable-row"
 
-    >
-      <td>{{ user.id }}</td>
-      <td>{{ user.name }}</td>
-      <td>{{ user.username }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.website }}</td>
-        <div *ngIf="showContextMenu && selectedUserId === user.id" class="context-menu" [style.left.px]="contextMenuX" [style.top.px]="contextMenuY">
-          <div class="menu-option delete-button" (click)="onDeleteClick()"><span>Delete</span></div>
-          <div class="menu-option detail-button" (click)="onDetailsClick()"><span>Details</span></div>
-        </div>
-    </tr>
-    </tbody>
-  </table>
+      >
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.website }}</td>
+          <div *ngIf="showContextMenu && selectedUserId === user.id" class="context-menu" [style.left.px]="contextMenuX" [style.top.px]="contextMenuY">
+            <div class="menu-option delete-button" (click)="onDeleteClick()"><span>Delete</span></div>
+            <div class="menu-option detail-button" (click)="onDetailsClick()"><span>Details</span></div>
+          </div>
+      </tr>
+      </tbody>
+    </table>
 </div>
 

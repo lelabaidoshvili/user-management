@@ -1,6 +1,21 @@
 .container {
   margin-top: 160px;
+
 }
+@media (max-width: 576px) {
+  .container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    padding: 0;
+    max-height: 400px;
+
+  }
+}
+
+
 .fw-light-bold {
   font-weight: 600;
 }
@@ -37,3 +52,22 @@ span {
 .detail-button:hover {
   background-color: #f4f5f5;
 }
+@media (max-width: 576px) {
+  .table-responsive {
+    margin: auto;
+    max-width: 360px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .fw-light-bold {
+    font-weight: 300;
+    font-size: 12px;
+  }
+  td {
+    font-size: 0.4em;
+  }
+}
+
+
+
