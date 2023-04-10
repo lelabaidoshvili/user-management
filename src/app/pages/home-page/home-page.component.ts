@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit{
     event.stopPropagation();
     this.selectedUserId = id;
     this.showContextMenu = true;
-    this.contextMenuX = event.pageX -150;
+    this.contextMenuX = event.pageX -100;
     this.contextMenuY = event.pageY- 50;
   }
 
