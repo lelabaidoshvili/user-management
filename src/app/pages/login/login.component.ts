@@ -32,14 +32,11 @@ export class LoginComponent  implements OnInit{
       this.errorMessage = 'Username or password is incorrect';
       return;
     } else {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home'], { queryParams: { username: 'admin', password: 'admin' } })
     }
   }
-  AddUsername() {
 
+  ngOnInit(): void {
+    console.log('Home page initialized');
   }
-
-  ngOnInit() {
-  }
-
 }
