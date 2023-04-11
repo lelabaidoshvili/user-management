@@ -4,7 +4,7 @@
 }
 @media (max-width: 576px) {
   .container {
-    margin: auto;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +14,6 @@
 
   }
 }
-
-
 .fw-light-bold {
   font-weight: 600;
 }
