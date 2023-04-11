@@ -43,10 +43,10 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: #e27374;
+  background-color: var(--secondary-color);
 }
 span {
-  color: #fdfdfd;
+  color: var(--light-color);
   font-size: 18px;
 }
 .username-info {
@@ -57,8 +57,8 @@ span {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #03a8f4;
-  border: #fdfdfd solid 1px;
+  background-color: var(--main-color);
+  border:  var(--light-color) solid 1px;
   top: 15%;
   left: 22%;
   span {
@@ -75,13 +75,13 @@ span {
   left: 15%
 }
 h2 {
-  color: #fdfdfd;
+  color: var(--light-color);
   font-size: 21px;
 
 }
 p {
   font-size: 16px;
-  color: #fdfdfd;
+  color: var(--light-color);
 
 }
 .icons {
@@ -89,18 +89,17 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100px;
+  width: 120px;
   bottom: 10%;
-  left: 34%;
+  left: 32%;
 
 }
 .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
-  background-color: #6e6d6d;
-  gap: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--dark-color);
 
 }

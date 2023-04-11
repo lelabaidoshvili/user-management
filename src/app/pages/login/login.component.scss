@@ -29,8 +29,8 @@
 }
 .header {
   padding: 20px;
-  background-color: #fdfdfd;
-  border-bottom: 1px solid #eceaea;
+  background-color: var(--light-color);
+  border-bottom: 1px solid var( --border-color);
 }
 
 
