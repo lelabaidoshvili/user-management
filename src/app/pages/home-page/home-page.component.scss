@@ -30,17 +30,20 @@
   padding: 0;
 }
 
-span {
- padding: 30px;
-}
 .delete-button {
-  width: 100px;
-  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80px;
+  max-height: 35px;
   border-bottom: 1px solid #dde1e5;
 }
 .detail-button {
-  width: 100px;
-  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80px;
+  max-height: 35px;
 
 }
 

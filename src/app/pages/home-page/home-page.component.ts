@@ -40,8 +40,12 @@ export class HomePageComponent implements OnInit{
     event.stopPropagation();
     this.selectedUserId = id;
     this.showContextMenu = true;
-    this.contextMenuX = event.pageX -100;
-    this.contextMenuY = event.pageY- 50;
+    if (event.pageX > window.innerWidth / 2) {
+      this.contextMenuX = event.pageX - 150;
+    } else {
+      this.contextMenuX = event.pageX  + 50 ;
+    }
+    this.contextMenuY = event.pageY - 50;
   }
 
   public onDeleteClick() {

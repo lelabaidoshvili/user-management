@@ -17,7 +17,7 @@
 }
 @media (max-width: 420px){
   .wrapper {
-    width: 340px;
+    max-width: 340px;
   }
 
 }
@@ -30,7 +30,7 @@
 }
 @media (max-width: 420px) {
   .image {
-    width: 340px;
+    max-width: 340px;
   }
 }
 .id-info {
