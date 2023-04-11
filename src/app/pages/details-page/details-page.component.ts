@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../core/user.service";
+import {User} from "../../core/user";
 
 @Component({
   selector: 'app-details-page',
@@ -8,7 +9,7 @@ import {UserService} from "../../core/user.service";
   styleUrls: ['./details-page.component.scss']
 })
 export class DetailsPageComponent  implements OnInit{
-  user: any;
+  user!: User;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
@@ -17,9 +18,8 @@ export class DetailsPageComponent  implements OnInit{
     const userId = this.route.snapshot.paramMap.get('id');
     if (userId !== null) {
       this.userService.getUserById(+userId)
-        .subscribe(user => this.user = user);
-      console.log('gfdsjhfsjdkf', this.user)
+        .subscribe(user => this.user = user as User);
     }
   }
-
 }
+

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService} from "../../core/user.service";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { User } from "../../core/user";
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class HomePageComponent implements OnInit{
 
-  users: any;
+  users: User[] =[];
   selectedUserId: number | null = null;
   showContextMenu: boolean = false;
   contextMenuX: number = 0;
@@ -18,10 +19,15 @@ export class HomePageComponent implements OnInit{
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(users => this.users = users);
+    this.userService.getUsers().subscribe((users: User[]) => {
+        this.users = users;
+
+      }
+    );
   }
 
-  onContextMenu(event: MouseEvent, id: number): void {
+
+  public onContextMenu(event: MouseEvent, id: number): void {
     event.preventDefault();
     this.selectedUserId = id;
     this.showContextMenu = true;
@@ -29,7 +35,7 @@ export class HomePageComponent implements OnInit{
     this.contextMenuY = event.pageY;
   }
 
-  onRowClick(id: number, event: MouseEvent) {
+  public onRowClick(id: number, event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
     this.selectedUserId = id;
@@ -38,7 +44,7 @@ export class HomePageComponent implements OnInit{
     this.contextMenuY = event.pageY- 50;
   }
 
-  onDeleteClick() {
+  public onDeleteClick() {
     const index = this.users.findIndex((user: any) => user.id === this.selectedUserId);
     if (index !== -1) {
       this.users.splice(index, 1);
@@ -47,7 +53,7 @@ export class HomePageComponent implements OnInit{
     this.showContextMenu = false;
   }
 
-  onDetailsClick() {
+  public onDetailsClick() {
     this.router.navigate([`/details/${this.selectedUserId}`]);
     this.selectedUserId = null;
     this.showContextMenu = false;
