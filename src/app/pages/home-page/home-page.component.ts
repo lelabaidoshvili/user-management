@@ -1,41 +1,30 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../core/user.service";
 import { Router } from "@angular/router";
 import { User } from "../../core/user";
 
+
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit, OnDestroy {
+export class HomePageComponent implements OnInit {
   users: User[] =[];
   selectedUserId: number | null = null;
-  showContextMenu: boolean = false;
-  contextMenuX: number = 0;
-  contextMenuY: number = 0;
+  showContextMenu = false;
+  contextMenuX = 0;
+  contextMenuY = 0;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService,
+              private router: Router,
+              ) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users = users;
     });
-  }
-
-  ngOnDestroy() {
-    window.removeEventListener('click', this.onWindowClick);
-  }
-
-  public onContextMenu = (event: MouseEvent, id: number): void => {
-    event.preventDefault();
-    this.selectedUserId = id;
-    this.showContextMenu = true;
-    this.contextMenuX = event.pageX;
-    this.contextMenuY = event.pageY;
-
-    // Add event listener to window object
-    window.addEventListener('click', this.onWindowClick);
   }
 
   public onRowClick = (id: number, event: MouseEvent): void => {
@@ -50,23 +39,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     }
     this.contextMenuY = event.pageY - 50;
 
-    // Add event listener to window object
-    window.addEventListener('click', this.onWindowClick);
   }
-  private onWindowClick = (event: MouseEvent): void => {
-    if (this.showContextMenu) {
-      const target = event.target as HTMLElement;
-      const contextMenu = target.closest('.context-menu');
-
-      if (!contextMenu) {
-        this.showContextMenu = false;
-
-        // Remove event listener from window object
-        window.removeEventListener('click', this.onWindowClick);
-      }
-    }
-  };
-
 
   public onDeleteClick(): void {
     const index = this.users.findIndex((user: any) => user.id === this.selectedUserId);
@@ -82,4 +55,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.selectedUserId = null;
     this.showContextMenu = false;
   }
+  public onMenuItemClicked(item: string): void {
+    switch (item) {
+      case 'Delete':
+        this.onDeleteClick();
+        break;
+      case 'Details':
+        this.onDetailsClick();
+        break;
+    }
+  }
+
 }

@@ -4,6 +4,7 @@ import { DetailsPageComponent } from './details-page.component';
 import {SharedModule} from "../../shared/shared.module";
 
 
+
 @NgModule({
   declarations: [
     DetailsPageComponent
@@ -11,6 +12,6 @@ import {SharedModule} from "../../shared/shared.module";
   imports: [
     DetailsPageRoutingModule,
     SharedModule
-  ]
+]
 })
 export class DetailsPageModule { }

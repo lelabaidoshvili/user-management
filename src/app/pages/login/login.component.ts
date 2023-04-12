@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AbstractControl} from "@angular/forms";
 
-
-function adminValidator(control: import("@angular/forms").AbstractControl): { [key: string]: any } | null {
+function adminValidator(control: AbstractControl): { [key: string]: any } | null {
   const value = control.value;
   if (value !== 'admin') {
     return { 'adminRequired': true };
@@ -16,7 +16,7 @@ function adminValidator(control: import("@angular/forms").AbstractControl): { [k
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent  implements OnInit{
+export class LoginComponent {
   errorMessage: string = '';
 
   constructor( private  router: Router) {
@@ -36,7 +36,4 @@ export class LoginComponent  implements OnInit{
     }
   }
 
-  ngOnInit(): void {
-    console.log('Home page initialized');
-  }
 }

@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ContextMenuComponent
+  ],
   imports: [
     CommonModule
   ],
@@ -17,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     FormsModule,
     HttpClientModule,
+    ContextMenuComponent
   ],
 
 })
