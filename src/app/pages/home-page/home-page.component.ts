@@ -17,8 +17,7 @@ export class HomePageComponent implements OnInit {
   contextMenuX = 0;
   contextMenuY = 0;
 
-  constructor(private userService: UserService,
-              private router: Router,
+  constructor(private userService: UserService, private router: Router,
               ) {}
 
   ngOnInit() {
