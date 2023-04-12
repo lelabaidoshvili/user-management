@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { UserService } from "../../core/user.service";
 import { Router } from "@angular/router";
 import { User } from "../../core/user";
@@ -10,25 +10,37 @@ import { User } from "../../core/user";
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
   users: User[] =[];
   selectedUserId: number | null = null;
   showContextMenu = false;
   contextMenuX = 0;
   contextMenuY = 0;
 
-  constructor(private userService: UserService, private router: Router,
-              ) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users = users;
+      document.addEventListener('click', this.onDocumentClick);
     });
+  }
+  ngOnDestroy() {
+    document.removeEventListener('click', this.onDocumentClick);
+  }
+
+  onDocumentClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    const rowClicked = target.closest('[id^="row-"]');
+    if (!rowClicked) {
+      this.showContextMenu = false;
+      this.selectedUserId = null;
+    }
   }
 
   public onRowClick = (id: number, event: MouseEvent): void => {
-    event.preventDefault();
-    event.stopPropagation();
+     event.preventDefault();
+     event.stopPropagation();
     this.selectedUserId = id;
     this.showContextMenu = true;
     if (event.pageX > window.innerWidth / 2) {
