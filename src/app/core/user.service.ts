@@ -7,16 +7,12 @@ import {User} from "./user";
   providedIn: 'root'
 })
 export class UserService {
-
-
-  private url = 'https://jsonplaceholder.typicode.com/users';
-
+  private readonly url = 'https://jsonplaceholder.typicode.com/users';
   constructor( private http: HttpClient) { }
-
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url);
   }
-  getUserById(id: number) {
-    return this.http.get(`${this.url}/${id}`);
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.url}/${id}`);
   }
 }

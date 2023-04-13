@@ -5,8 +5,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
 
-
-
 @NgModule({
   declarations: [
     ContextMenuComponent

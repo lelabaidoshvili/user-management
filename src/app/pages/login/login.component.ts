@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {AbstractControl} from "@angular/forms";
+import { FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AbstractControl} from '@angular/forms';
 
 function adminValidator(control: AbstractControl): { [key: string]: any } | null {
   const value = control.value;
@@ -16,23 +16,33 @@ function adminValidator(control: AbstractControl): { [key: string]: any } | null
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  errorMessage: string = '';
+export class LoginComponent implements OnInit {
+  public errorMessage: string = '';
 
   constructor( private  router: Router) {
   }
 
-  form: FormGroup = new FormGroup ( {
+
+  public ngOnInit(): void {
+    localStorage.clear();
+  }
+
+
+  public form: FormGroup = new FormGroup ( {
     username: new FormControl('', [Validators.required, adminValidator]),
     password: new FormControl('', [Validators.required, adminValidator])
   })
-  submit() {
+  public submit(): void {
     this.form.markAllAsTouched();
     if (this.form.invalid) {
       this.errorMessage = 'Username or password is incorrect';
       return;
     } else {
-      this.router.navigate(['/home'], { queryParams: { username: 'admin', password: 'admin' } })
+      this.form.value.username
+      localStorage.setItem('username', this.form.value.username)
+      localStorage.setItem('password', this.form.value.password)
+      this.router.navigate(['/home'])
+
     }
   }
 

@@ -11,9 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users" (click)="onRowClick(user.id, $event)" class="clickable-row"
-
-    >
+    <tr *ngFor="let user of users" (click)="onRowClick(user.id, $event)" class="clickable-row">
       <td>{{ user.id }}</td>
       <td>{{ user.name }}</td>
       <td>{{ user.username }}</td>

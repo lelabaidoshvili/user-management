@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { UserService } from "../../core/user.service";
-import { Router } from "@angular/router";
-import { User } from "../../core/user";
+import { UserService } from '../../core/user.service';
+import { Router } from '@angular/router';
+import { User } from '../../core/user';
 
 
 
@@ -11,25 +11,25 @@ import { User } from "../../core/user";
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
-  users: User[] =[];
-  selectedUserId: number | null = null;
-  showContextMenu = false;
-  contextMenuX = 0;
-  contextMenuY = 0;
+  public users: User[] =[];
+  public selectedUserId: number | null = null;
+  public showContextMenu = false;
+  public contextMenuX = 0;
+  public contextMenuY = 0;
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users = users;
       document.addEventListener('click', this.onDocumentClick);
     });
   }
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     document.removeEventListener('click', this.onDocumentClick);
   }
 
-  onDocumentClick = (event: MouseEvent) => {
+  public onDocumentClick = (event: MouseEvent): void => {
     const target = event.target as HTMLElement;
     const rowClicked = target.closest('[id^="row-"]');
     if (!rowClicked) {
@@ -38,7 +38,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onRowClick = (id: number, event: MouseEvent): void => {
+  public onRowClick (id: number, event: MouseEvent): void {
      event.preventDefault();
      event.stopPropagation();
     this.selectedUserId = id;

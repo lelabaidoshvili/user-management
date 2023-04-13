@@ -21,10 +21,8 @@ export class ContextMenuComponent {
       }
     }
   }
-
   public onItemClick(item: string): void {
     this.itemClicked.emit(item);
   }
-
 
 }

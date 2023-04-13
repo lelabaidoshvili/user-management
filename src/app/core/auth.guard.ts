@@ -6,15 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  canActivate(
+  public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const username = next.queryParams['username'];
-    const password = next.queryParams['password'];
-    if (username === 'admin' && password === 'admin') {
-      return true;
-    } else {
-      return false;
-    }
+    const username = localStorage.getItem('username')
+    const password = localStorage.getItem('password')
+    return username === 'admin' && password === 'admin';
   }
 }
